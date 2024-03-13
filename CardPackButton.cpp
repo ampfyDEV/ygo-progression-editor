@@ -1,5 +1,5 @@
 #include "CardPackButton.h"
-
+#include <QDateTime>
 #include <QDir>
 #include <QVBoxLayout>
 #include <QJsonObject>
@@ -9,6 +9,7 @@
 
 CardPackButton::CardPackButton(CardPack cardPack,QWidget *parent): cardPack(cardPack), QPushButton(parent)
 {
+    randomGenerator.seed(QDateTime::currentSecsSinceEpoch());
     this->setFixedSize(150,250);
     setName = cardPack.setName;
     setCode = cardPack.setCode;
@@ -79,7 +80,6 @@ void CardPackButton::on_OpenPacks()
 
         int luckyNumber = 16;
         for(size_t t = 0; t < packsToPull; t++){
-            qDebug() << setName + " #"+QString::number(t);
             // Keep selecting random cards until the desired number is reached
             for (size_t i = 0; i < 6; i++) {
                 int chanceNumber = randomGenerator.bounded(101);

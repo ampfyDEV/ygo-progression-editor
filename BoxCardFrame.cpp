@@ -12,7 +12,7 @@ BoxCardFrame::BoxCardFrame(const Card card, QWidget *parent): card(card)
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
     this->setFixedHeight(125);
     cardDisplay = new QLabel(this);
-    image = new QPixmap(card.imagePath);
+    image = new QPixmap(card.imagePath_small);
     cardDisplay->setPixmap(image->scaled(75,225,Qt::KeepAspectRatio));
     cardDisplay->setFixedSize(75,110);
 

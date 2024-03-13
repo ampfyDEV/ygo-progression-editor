@@ -17,7 +17,7 @@ CardRevealCard::CardRevealCard(Card card,QWidget *parent ): QPushButton(parent) 
 
 
     QString filepath = QDir::currentPath() + "/Data/Cards/";
-    QString imagePath = card.imagePath;
+    QString imagePath = card.imagePath_small;
     QString backPath = filepath + "cardback.png";
 
     cardDisplay = new QLabel(this);

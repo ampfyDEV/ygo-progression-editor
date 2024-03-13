@@ -247,7 +247,6 @@ void PacksMenuPage::UpdateCardPackDisplay()
 {
     clearLayout(packsContainerLayout);
     cardPackButtons.clear();
-    qDebug() << cardPacks.size();
     QList<CardPack> displayCardPack = cardPacks;
     displayCardPack = FilterPackList(displayCardPack);
     displayCardPack = SortDisplayList(displayCardPack);

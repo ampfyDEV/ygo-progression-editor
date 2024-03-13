@@ -13,7 +13,6 @@ public:
 
     int cardId;
     int copies;
-    QString imagePath;
     QString imagePath_small;
     QDateTime obtainDate;
     QString setRarity;
