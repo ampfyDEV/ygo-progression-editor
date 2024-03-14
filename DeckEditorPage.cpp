@@ -329,6 +329,7 @@ void DeckEditorPage::UpdateSelectedCardDisplay(int cardId)
 void DeckEditorPage::AddCardToDeck(int cardId, int index)
 {
     Card card = m_cardBox.value(cardId);
+    currentIndex = index;
     if(currentDeck.deckName.isEmpty()) return;
 
     if(isMainDeckMon(card) && !isCardLimitReached(card) && currentDeck.mainDeck.count() < 60){
@@ -349,7 +350,6 @@ void DeckEditorPage::AddCardToDeck(int cardId, int index)
         UpdateCardBoxDisplay();
         UpdateDeckBoxDisplay();
     }
-    currentIndex = index;
 
 }
 
@@ -408,13 +408,13 @@ void DeckEditorPage::onSearchUpdate(QString search)
 void DeckEditorPage::onAddToSideDeck(int cardId, int index)
 {
     Card card = m_cardBox.value(cardId);
+    currentIndex = index;
     if(!isCardLimitReached(card) && currentDeck.sideDeck.count() < 15){
         RemoveCardFromCardBox(cardId);
         currentDeck.sideDeck.append(card);
         UpdateCardBoxDisplay();
         UpdateDeckBoxDisplay();
     }
-    currentIndex = index;
 }
 
 

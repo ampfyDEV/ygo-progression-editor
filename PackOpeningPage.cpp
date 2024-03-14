@@ -203,7 +203,7 @@ void PackOpeningPage::OnPackOpened()
 {
     currentCardsOpened++;
     if(currentCardsOpened == 7 && (currentPack * 7) + 7 < cardsToOpen.size()){
-        nextPackButton->setEnabled(currentPack <= maxPack);
+        nextPackButton->setEnabled(currentPack + 1 < maxPack);
         currentCardsOpened = 0;
     }
 }

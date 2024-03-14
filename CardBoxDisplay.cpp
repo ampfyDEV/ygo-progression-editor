@@ -19,6 +19,7 @@ CardBoxDisplay::CardBoxDisplay(QList<Card> cards,int prevIndex, QWidget *parent)
 
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(scrollArea);
+    currentIndex = qBound(0, currentIndex, cards.size() - 1);
     displayCards(currentIndex); // Display the first batch of cards
     pageNumberDisplay = new QLabel(this);
     pageNumberDisplay->setAlignment(Qt::AlignCenter);
@@ -52,7 +53,6 @@ void CardBoxDisplay::wheelEvent(QWheelEvent *event) {
 }
 
 void CardBoxDisplay::displayCards(int startIndex) {
-    qDeleteAll(cardsWidgets);
     cardsWidgets.clear();
 
     int endIndex = qMin(startIndex + 5, cards.size());
